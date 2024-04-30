@@ -12,4 +12,8 @@ public class ManagerController {
     public void changePassword(String email, String password, String newPassword) {
         managerRepository.changePassword(email, password, newPassword);
     }
+
+    public void logOut() {
+        managerRepository.logOut();
+    }
 }
