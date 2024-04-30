@@ -3,7 +3,7 @@ package repository;
 import entity.Manager;
 
 public class ManagerRepository {
-    private Manager manager = new Manager("abcd@abcd.com", "1234", "김개똥");
+    private Manager manager = null;
 
     public boolean logIn(String email, String password) {
         // 만약 관리자가 입력한 비밀번호가 등록된 비밀번호와 같다면
@@ -32,5 +32,9 @@ public class ManagerRepository {
     public boolean logOut() {
         // 관리자 로그아웃하기
         return false;
+    }
+
+    public void save(Manager manager) {
+        this.manager = manager;
     }
 }
