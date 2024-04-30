@@ -28,4 +28,9 @@ public class ManagerRepository {
             return;
         }
     }
+
+    public boolean logOut() {
+        // 관리자 로그아웃하기
+        return false;
+    }
 }
