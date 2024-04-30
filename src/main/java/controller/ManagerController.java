@@ -1,5 +1,6 @@
 package controller;
 
+import entity.Manager;
 import repository.ManagerRepository;
 
 public class ManagerController {
@@ -15,5 +16,9 @@ public class ManagerController {
 
     public void logOut() {
         managerRepository.logOut();
+    }
+
+    public void registerManager() {
+        managerRepository.save(new Manager("abcd@abcd.com", "1234", "김개똥"));
     }
 }
