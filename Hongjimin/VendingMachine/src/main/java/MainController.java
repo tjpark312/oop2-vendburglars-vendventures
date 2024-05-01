@@ -1,7 +1,4 @@
-package vendingMachine;
-
-import manager.Manager;
-import manager.ManagerController;
+import vendingMachine.VendingMachineController;
 
 import java.util.Scanner;
 
