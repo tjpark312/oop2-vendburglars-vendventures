@@ -1,4 +1,4 @@
-package model;
+package itemInventory.model;
 
 public class Item {
     private int price;
@@ -15,10 +15,12 @@ public class Item {
 
     private String temperature;
 
+    private int quantity;
+
     public Item() {
     }
 
-    public Item(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature) {
+    public Item(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, int quantity) {
         this.price = price;
         this.name = name;
         this.volume = volume;
@@ -26,6 +28,7 @@ public class Item {
         this.manufacturer = manufacturer;
         this.caffeine = caffeine;
         this.temperature = temperature;
+        this.quantity = quantity;
     }
 
     public int getPrice() {
@@ -84,6 +87,13 @@ public class Item {
         this.temperature = temperature;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     @Override
     public String toString() {

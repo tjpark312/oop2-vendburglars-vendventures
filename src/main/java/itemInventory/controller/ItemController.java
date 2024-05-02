@@ -1,28 +1,16 @@
-package controller;
+package itemInventory.controller;
 
-import dto.ItemDto;
-import model.Item;
-import repository.ItemRepository;
-import util.ItemEnum;
+
+import itemInventory.dto.ItemDto;
+import itemInventory.model.Item;
+import itemInventory.repository.ItemRepository;
+import itemInventory.util.ItemFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class ItemController {
 
-    class ClassName<T> {
-
-        private T element;
-
-        void set(T element) {
-            this.element = element;
-        }
-
-        T get() {
-            return element;
-        }
-
-    }
 
     private final ItemRepository itemRepository;
 
@@ -54,10 +42,10 @@ public class ItemController {
         itemRepository.deleteByNameAndVolume(name, volume);
     }
 
-    public void saveItem(ItemDto itemDto) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        Class<? extends Item> type = ItemEnum.valueOf(itemDto.getKind()).getType();
-        Item item =
-                type.getConstructor().newInstance();
+    public void saveItem(ItemDto itemDto) throws Exception {
+
+
+        Item item = ItemFactory.createItem(ItemFactory.ItemEnum.valueOf(itemDto.getKind()), itemDto.getDetails());
         item.setCaffeine(itemDto.getCaffeine());
         item.setManufacturer(itemDto.getManufacturer());
         item.setName(itemDto.getName());
@@ -66,8 +54,16 @@ public class ItemController {
         item.setTemperature(item.getTemperature());
         item.setCalorie(item.getCalorie());
 
-
         itemRepository.save(item);
+    }
+
+    public void updateQuantity(String name, int volume, int quantity) {
+
+        itemRepository.updateQuantity(name, volume,quantity);
+    }
+
+    public int checkQuantity(String name, int volume) {
+        return itemRepository.findByNameAndVolume(name, volume).getQuantity();
     }
 
 //    public void updateItem(ItemDto itemDto) {

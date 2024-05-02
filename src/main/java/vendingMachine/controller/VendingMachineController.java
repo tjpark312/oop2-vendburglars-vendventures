@@ -2,7 +2,7 @@ package vendingMachine.controller;
 
 import domain.manager.Manager;
 import domain.manager.inventory.Item;
-import repository.ManagerRepository;
+import Manager.ManagerRepository;
 import repository.VendingMachineRepository;
 
 import java.util.List;
