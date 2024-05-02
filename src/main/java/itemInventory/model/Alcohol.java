@@ -7,10 +7,12 @@ public class Alcohol extends Item{
         this.abv = abv;
     }
 
-    public Alcohol(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, float abv) {
-        super(price, name, volume, calorie, manufacturer, caffeine, temperature);
+    public Alcohol(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, int quantity, float abv) {
+        super(price, name, volume, calorie, manufacturer, caffeine, temperature, quantity);
         this.abv = abv;
     }
+
+
 
     public float getAbv() {
         return abv;
@@ -18,5 +20,13 @@ public class Alcohol extends Item{
 
     public void setAbv(float abv) {
         this.abv = abv;
+    }
+
+    @Override
+    public String toString() {
+        return "Alcohol{" +
+                super.toString() +
+                "abv=" + abv +
+                '}';
     }
 }
