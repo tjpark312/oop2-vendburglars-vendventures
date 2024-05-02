@@ -1,11 +1,9 @@
-package repository;
+package itemInventory.repository;
 
-import model.Item;
-import util.ItemEnum;
+import itemInventory.model.Item;
+import itemInventory.util.ItemFactory;
 
-import java.awt.geom.NoninvertibleTransformException;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 public class ItemRepository {
@@ -31,7 +29,7 @@ public class ItemRepository {
 
     public List<Item> findAllByKind(String kind) {
         return inventory.stream().filter(item ->
-                item.getClass() == ItemEnum.valueOf(kind).getType()).toList();
+                item.getClass().equals(ItemFactory.ItemEnum.valueOf(kind).getType())).toList();
     }
 
     public void deleteByNameAndVolume(String name, int volume) {
@@ -39,7 +37,18 @@ public class ItemRepository {
         inventory.remove(item);
     }
 
-    public void save(Item item) {
+    public void save(Item item) throws Exception {
+        if(inventory.contains(item)) {
+            throw new Exception("Item is already exist!");
+        }
         inventory.add(item);
+    }
+
+
+    public void updateQuantity(String name, int volume, int quantity) {
+
+        Item found = findByNameAndVolume(name,volume);
+
+        found.setQuantity(quantity);
     }
 }
