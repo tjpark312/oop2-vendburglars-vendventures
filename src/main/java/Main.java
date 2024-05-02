@@ -3,6 +3,7 @@ import itemInventory.controller.ItemController;
 import itemInventory.dto.ItemDto;
 import itemInventory.model.Item;
 import itemInventory.repository.ItemRepository;
+import manager.controller.ManagerController;
 import vendingMachine.controller.VendingMachine;
 
 import java.util.ArrayList;
@@ -13,10 +14,11 @@ public class Main {
     static int sum = 0;
     static ItemRepository itemRepository = new ItemRepository();
     static ItemController itemController = new ItemController(itemRepository);
+    static ManagerController managerController = new ManagerController();
     static List<Item> list = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
-    static VendingMachine vendingMachine = new VendingMachine();
     private static boolean loginCheck = false;
+    public static VendingMachine vendingMachine = new VendingMachine(itemController, managerController);
 
     public static void main(String[] args) {
         List<Object> details = List.of("Ethiopian Yirgacheffe", "water", "espresso");
@@ -71,52 +73,4 @@ public class Main {
         itemController.updateQuantity(item.getName(),item.getVolume(),-1);
     }
 
-    /*
-        String email, password, newPassword, choice;
-
-        Scanner scanner = new Scanner(System.in);
-        ManagerController managerController = new ManagerController();
-
-        // 관리자 한명 등록해놓고 시작
-        managerController.registerManager();
-
-        // 관리자 로그인
-        System.out.println("============= 로그인 ==============");
-        System.out.println("관리자의 이메일을 입력하세요. ");
-        email = scanner.next();
-        System.out.println("관리자의 비밀번호를 입력하세요. ");
-        password = scanner.next();
-        if(managerController.logIn(email, password)) {
-            System.out.println("로그인 되었습니다.");
-        }
-        else {
-            System.out.println("이메일 또는 비밀번호가 잘못 입력되었습니다.");
-        }
-
-        // 관리자 비밀번호 변경
-        System.out.println("============= 비밀번호 변경 ==============");
-        System.out.println("관리자의 이메일을 입력하세요. ");
-        email = scanner.next();
-        System.out.println("관리자의 비밀번호를 입력하세요. ");
-        password = scanner.next();
-        System.out.println("새로 변경할 비밀번호를 입력하세요. ");
-        newPassword = scanner.next();
-        if(managerController.changePassword(email, password, newPassword)) {
-            System.out.println("비밀번호가 변경되었습니다.");
-        }
-        else {
-            System.out.println("이메일 또는 비밀번호가 잘못 입력되었습니다.");
-        }
-
-        // 관리자 로그아웃
-        System.out.println("============= 로그아웃 ==============");
-        System.out.println("로그아웃 하시겠습니까?\n" + "1. 예 " + "2. 아니요 ");
-        choice = scanner.next();
-        if(choice.equals("1")) {
-            managerController.logOut();
-            System.out.println("로그아웃 되었습니다.");
-        }
-    }
-
-     */
 }
