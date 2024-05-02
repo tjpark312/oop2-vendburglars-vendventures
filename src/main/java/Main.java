@@ -21,23 +21,28 @@ public class Main {
     public static VendingMachine vendingMachine = new VendingMachine(itemController, managerController);
 
     public static void main(String[] args) {
+
+        List<Object> details = List.of("Ethiopian Yirgacheffe", "water", "espresso");
+        ItemDto itemDto = new ItemDto(100, "americano", 500, 32, "starbucks" ,
+                324, "cold", "Coffee",20, details);
+
         ItemDto itemDto = new ItemDto(3500, "americano", 500, 32, "Starbucks" ,
-                150, "cold", "Coffee",  List.of("Ethiopian Yirgacheffe", "water", "espresso"));
+                150, "cold", "Coffee", 10,List.of("Ethiopian Yirgacheffe", "water", "espresso"));
 
         ItemDto itemDto2 = new ItemDto(5500, "Sea Salt Caramel Cold Brew", 355, 32, "Starbucks" ,
-                130, "cold", "Coffee", List.of(""));
+                130, "cold", "Coffee", 12,List.of(""));
 
         ItemDto itemDto3 = new ItemDto(1500, "Coca Cola", 500, 250, "The Coca-Cola Company" ,
-                324, "cold", "SoftDrink", List.of(""));
+                324, "cold", "SoftDrink", 13, List.of(""));
 
         ItemDto itemDto4 = new ItemDto(1500, "Monster Energy", 473 , 160 , "Monster Beverage Corporation" ,
-                160 , "cold", "SportDrink", List.of(""));
+                160 , "cold", "SportDrink", ,15 List.of(""));
 
         ItemDto itemDto5 = new ItemDto(1800, "Monster Energy", 650  , 160 , "Monster Beverage Corporation" ,
                 60, "cold", "SportDrink", List.of("Tea"));
-        ItemDto itemDto6 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery", 0,  "cold", "Alcohol", List.of(5.0));
+        ItemDto itemDto6 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery", 0,  "cold", "Alcohol", 16,List.of(5.0));
 
-        ItemDto itemDto7 = new ItemDto(1300, "Lipton Iced Tea",500, 270,"Lipton", 0,  "cold", "Tea", List.of("Peach"));
+        ItemDto itemDto7 = new ItemDto(1300, "Lipton Iced Tea",500, 270,"Lipton", 0,  "cold", "Tea", 17, List.of("Peach"));
 
         try {
             itemController.insertItem(itemDto);
@@ -58,8 +63,10 @@ public class Main {
                 case 1:
                     managerStart();
 //                vendingMachine.startManager();
+                    break;
                 case 2:
                     customerStart();
+                    break;
             }
         }
     }
@@ -73,6 +80,23 @@ public class Main {
             String password = scanner.next();
 
             loginCheck = vendingMachine.startManager(email, password);
+        }
+        String managerMenu = """
+        1. 매출 확인하기 
+        2. 재고 확인하기 
+        """;
+        System.out.print(managerMenu + "입력 : ");
+        int num = scanner.nextInt();
+        switch(num) {
+            case 1 :
+                vendingMachine.checkMoney();
+                break;
+            case 2 :
+                list = itemController.listItems();
+                for(Item item : list) {
+                    System.out.println("제품 이름 : " + item.getName() + " 제품 개수 : " + item.getQuantity());
+                }
+                break;
         }
     }
 
@@ -91,7 +115,7 @@ public class Main {
         sum += item.getPrice();
         vendingMachine.setPrice(sum);
         System.out.println(vendingMachine.getPrice());
-        itemController.updateQuantity(item.getName(),item.getVolume(),-1);
+        itemController.updateQuantity(item.getName(),item.getVolume(), item.getQuantity()-1);
     }
 
 }

@@ -53,7 +53,7 @@ public class ItemController {
         item.setVolume(itemDto.getVolume());
         item.setTemperature(itemDto.getTemperature());
         item.setCalorie(itemDto.getCalorie());
-
+        item.setQuantity(itemDto.getQuantity());
         itemRepository.save(item);
     }
 
