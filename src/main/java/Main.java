@@ -53,7 +53,7 @@ public class Main {
         }
 
         // 관리자 등록
-
+        managerController.registerManager();
 
         while (true) {
             vendingMachine.choiceUser();
