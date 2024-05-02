@@ -1,8 +1,8 @@
 package vendingMachine.controller;
 
-import Manager.entity.controller.ManagerController;
-import Manager.entity.repository.ManagerRepository;
-import vendingMachine.entity.machine;
+import Manager.ManagerController;
+import Manager.ManagerRepository;
+import Manager.entity.controller.*;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ public class VendingMachine
 
     Scanner scanner = new Scanner(System.in);
     private boolean loginCheck = false;
-    machine machine = new machine();
+
 
     public void choiceUser()
     {
