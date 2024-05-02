@@ -1,19 +1,18 @@
-package entity;
+package manager.model;
 
 public class Manager {
     private String email;
     private String password;
     private String name;
 
-    // 싱글톤 패턴??
-    // 생성자 생성하기
+    // 생성자
     public Manager(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
     }
 
-    // getter/setter 생성하기
+    // getter/setter
     public void setEmail(String email) {
         this.email = email;
     }
@@ -31,4 +30,5 @@ public class Manager {
     }
     public String getName() {
         return this.name; }
+
 }

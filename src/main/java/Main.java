@@ -3,6 +3,7 @@ import itemInventory.controller.ItemController;
 import itemInventory.dto.ItemDto;
 import itemInventory.model.Item;
 import itemInventory.repository.ItemRepository;
+import manager.controller.ManagerController;
 import vendingMachine.controller.VendingMachine;
 
 import java.util.ArrayList;
@@ -13,10 +14,11 @@ public class Main {
     static int sum = 0;
     static ItemRepository itemRepository = new ItemRepository();
     static ItemController itemController = new ItemController(itemRepository);
+    static ManagerController managerController = new ManagerController();
     static List<Item> list = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
     private static boolean loginCheck = false;
-    public VendingMachine vendingMachine = new VendingMachine(itemController);
+    public static VendingMachine vendingMachine = new VendingMachine(itemController, managerController);
 
     public static void main(String[] args) {
         List<Object> details = List.of("Ethiopian Yirgacheffe", "water", "espresso");

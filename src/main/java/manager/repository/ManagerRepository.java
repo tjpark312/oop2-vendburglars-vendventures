@@ -1,4 +1,6 @@
-package Manager;
+package manager.repository;
+
+import manager.model.Manager;
 
 public class ManagerRepository {
     private Manager manager = null;
@@ -15,21 +17,22 @@ public class ManagerRepository {
         }
     }
 
-    public void changePassword(String email, String password, String newPassword) {
+    public boolean changePassword(String email, String password, String newPassword) {
         // 만약 관리자가 입력한 비밀번호가 등록된 비밀번호와 같다면
         if(manager.getEmail().equals(email) && manager.getPassword().equals(password)) {
             // 비밀번호 변경
             manager.setPassword(newPassword);
+            return true;
         }
         else {
             // 비밀번호 변경하지 않고 종료
-            return;
+            return false;
         }
     }
 
     public boolean logOut() {
         // 관리자 로그아웃하기
-        return false;
+        return true;
     }
 
     public void save(Manager manager) {
