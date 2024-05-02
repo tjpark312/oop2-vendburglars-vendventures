@@ -1,3 +1,5 @@
+package Hongjimin;
+
 import vendingMachine.VendingMachineController;
 
 import java.util.Scanner;
