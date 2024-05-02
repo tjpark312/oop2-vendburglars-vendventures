@@ -22,10 +22,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        List<Object> details = List.of("Ethiopian Yirgacheffe", "water", "espresso");
-        ItemDto itemDto = new ItemDto(100, "americano", 500, 32, "starbucks" ,
-                324, "cold", "Coffee",20, details);
-
         ItemDto itemDto = new ItemDto(3500, "americano", 500, 32, "Starbucks" ,
                 150, "cold", "Coffee", 10,List.of("Ethiopian Yirgacheffe", "water", "espresso"));
 
@@ -36,10 +32,10 @@ public class Main {
                 324, "cold", "SoftDrink", 13, List.of(""));
 
         ItemDto itemDto4 = new ItemDto(1500, "Monster Energy", 473 , 160 , "Monster Beverage Corporation" ,
-                160 , "cold", "SportDrink", ,15 List.of(""));
+                160 , "cold", "SportDrink", 15, List.of(""));
 
         ItemDto itemDto5 = new ItemDto(1800, "Monster Energy", 650  , 160 , "Monster Beverage Corporation" ,
-                60, "cold", "SportDrink", List.of("Tea"));
+                60, "cold", "SportDrink",13, List.of("Tea"));
         ItemDto itemDto6 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery", 0,  "cold", "Alcohol", 16,List.of(5.0));
 
         ItemDto itemDto7 = new ItemDto(1300, "Lipton Iced Tea",500, 270,"Lipton", 0,  "cold", "Tea", 17, List.of("Peach"));
@@ -56,6 +52,9 @@ public class Main {
             System.out.println(ex.getMessage());
         }
 
+        // 관리자 등록
+
+
         while (true) {
             vendingMachine.choiceUser();
             int choice = scanner.nextInt();
@@ -71,6 +70,7 @@ public class Main {
         }
     }
 
+
     public static void managerStart() {
         while (!loginCheck) {
             System.out.println("관리자 로그인");
@@ -84,6 +84,7 @@ public class Main {
         String managerMenu = """
         1. 매출 확인하기 
         2. 재고 확인하기 
+        3. 비밀번호 변경하기
         """;
         System.out.print(managerMenu + "입력 : ");
         int num = scanner.nextInt();
@@ -97,7 +98,24 @@ public class Main {
                     System.out.println("제품 이름 : " + item.getName() + " 제품 개수 : " + item.getQuantity());
                 }
                 break;
+            case 3:
+                System.out.println("============= 비밀번호 변경 ==============");
+                System.out.println("관리자의 이메일을 입력하세요. ");
+                String email = scanner.next();
+                System.out.println("관리자의 비밀번호를 입력하세요. ");
+                String password = scanner.next();
+                System.out.println("새로 변경할 비밀번호를 입력하세요. ");
+                String newPassword = scanner.next();
+                if(managerController.changePassword(email, password, newPassword)) {
+                    System.out.println("비밀번호가 변경되었습니다.");
+                }
+                else {
+                    System.out.println("이메일 또는 비밀번호가 잘못 입력되었습니다.");
+                }
+                break;
+
         }
+        loginCheck = !managerController.logOut();
     }
 
     public static void customerStart(){//메뉴 출력
