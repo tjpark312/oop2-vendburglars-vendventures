@@ -11,6 +11,10 @@ public class SportDrink extends Item {
         this.types = types;
     }
 
+    public SportDrink() {
+
+    }
+
     public String getTypes() {
         return types;
     }

@@ -12,6 +12,9 @@ public class Alcohol extends Item{
         this.abv = abv;
     }
 
+    public Alcohol() {
+
+    }
 
 
     public float getAbv() {
