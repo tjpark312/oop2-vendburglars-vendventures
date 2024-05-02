@@ -20,9 +20,9 @@ public class application {
 
         ItemController itemController = new ItemController(new ItemRepository());
 
-//        VendingMachineController vendingMachineController = new VendingMachineController(new VendingMachingRepository());
-//
-//        ManagerController managerController = new ManagerController(new ManagerRepository());
+        VendingMachineController vendingMachineController = new VendingMachineController(new VendingMachingRepository());
+
+        ManagerController managerController = new ManagerController(new ManagerRepository());
 
         // 초기 메뉴 추가
 
@@ -47,26 +47,26 @@ public class application {
         System.out.println("""
                     자판기를 시작합니다. 관리자를 등록해주세요.
                     """);
-//        managerController.registerManager();
-//
-//        while(true) {
-//
-//            System.out.println(initialMessage);
-//
-//            int cmd = scanner.nextInt();
-//
-//            switch (cmd) {
-//                case 1:
-//                    vendingMachineController.startManager();
-//                    break;
-//                case 2:
-//                    System.out.println(itemController.listItems());
-//                    vendingMachineController.startCustomer();
-//                    break;
-//            }
-//
-//
-//        }
+        managerController.registerManager();
+
+        while(true) {
+
+            System.out.println(initialMessage);
+
+            int cmd = scanner.nextInt();
+
+            switch (cmd) {
+                case 1:
+                    vendingMachineController.startManager();
+                    break;
+                case 2:
+                    System.out.println(itemController.listItems());
+                    vendingMachineController.startCustomer();
+                    break;
+            }
+
+
+        }
 
 
 
