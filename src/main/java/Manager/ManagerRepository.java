@@ -1,6 +1,4 @@
-package repository;
-
-import entity.Manager;
+package Manager;
 
 public class ManagerRepository {
     private Manager manager = null;

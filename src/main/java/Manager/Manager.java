@@ -1,4 +1,4 @@
-package entity;
+package Manager;
 
 public class Manager {
     private String email;
