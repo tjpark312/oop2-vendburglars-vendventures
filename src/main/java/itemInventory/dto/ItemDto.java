@@ -1,4 +1,6 @@
-package dto;
+package itemInventory.dto;
+
+import java.util.List;
 
 public class ItemDto {
 
@@ -18,10 +20,12 @@ public class ItemDto {
 
     private String kind;
 
+    private List<Object> details;
+
     public ItemDto() {
     }
 
-    public ItemDto(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, String kind) {
+    public ItemDto(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, String kind, List<Object> details) {
         this.price = price;
         this.name = name;
         this.volume = volume;
@@ -30,6 +34,7 @@ public class ItemDto {
         this.caffeine = caffeine;
         this.temperature = temperature;
         this.kind = kind;
+        this.details = details;
     }
 
     public int getPrice() {
@@ -94,5 +99,13 @@ public class ItemDto {
 
     public void setKind(String kind) {
         this.kind = kind;
+    }
+
+    public List<Object> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<Object> details) {
+        this.details = details;
     }
 }
