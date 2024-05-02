@@ -10,9 +10,10 @@ public class Coffee extends Item{
         this.additions = additions;
     }
 
-    public Coffee(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, String bean) {
-        super(price, name, volume, calorie, manufacturer, caffeine, temperature);
+    public Coffee(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, int quantity, String bean, List<String> additions) {
+        super(price, name, volume, calorie, manufacturer, caffeine, temperature, quantity);
         this.bean = bean;
+        this.additions = additions;
     }
 
     public String getBean() {

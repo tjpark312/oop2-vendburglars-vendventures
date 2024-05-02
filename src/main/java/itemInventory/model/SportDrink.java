@@ -6,8 +6,8 @@ public class SportDrink extends Item {
         this.types = types;
     }
 
-    public SportDrink(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, String types) {
-        super(price, name, volume, calorie, manufacturer, caffeine, temperature);
+    public SportDrink(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, int quantity, String types) {
+        super(price, name, volume, calorie, manufacturer, caffeine, temperature, quantity);
         this.types = types;
     }
 }

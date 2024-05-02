@@ -7,8 +7,8 @@ public class Alcohol extends Item{
         this.abv = abv;
     }
 
-    public Alcohol(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, float abv) {
-        super(price, name, volume, calorie, manufacturer, caffeine, temperature);
+    public Alcohol(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, int quantity, float abv) {
+        super(price, name, volume, calorie, manufacturer, caffeine, temperature, quantity);
         this.abv = abv;
     }
 
