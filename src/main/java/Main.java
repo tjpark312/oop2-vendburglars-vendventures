@@ -4,6 +4,7 @@ import itemInventory.dto.ItemDto;
 import itemInventory.model.Item;
 import itemInventory.repository.ItemRepository;
 import manager.controller.ManagerController;
+import manager.repository.ManagerRepository;
 import vendingMachine.controller.VendingMachine;
 
 import java.util.ArrayList;
@@ -14,7 +15,8 @@ public class Main {
     static int sum = 0;
     static ItemRepository itemRepository = new ItemRepository();
     static ItemController itemController = new ItemController(itemRepository);
-    static ManagerController managerController = new ManagerController();
+    static ManagerRepository managerRepository = new ManagerRepository();
+    static ManagerController managerController = new ManagerController(managerRepository);
     static List<Item> list = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
     private static boolean loginCheck = false;
