@@ -18,13 +18,35 @@ public class ItemFactory {
     public enum ItemEnum {
 
         SoftDrink((i) -> new SoftDrink()),
-        SportDrink((i) -> new SportDrink((String) i.getFirst())),
-        Tea((i) -> new Tea((String) i.getFirst())),
-        Alcohol((i) -> new Alcohol((int) i.getFirst())),
-        Coffee((i) -> new Coffee((String) i.getFirst(), getSubList(i,1, i.size())));
+        SportDrink((i) -> {
+            if (!i.isEmpty()) {
+                return new SportDrink((String) i.get(0));
+            }
+            return new SportDrink();
+        }),
+        Tea((i) -> {
+            if (!i.isEmpty()) {
+                return new Tea((String) i.get(0));
+            }
+            return new Tea();
+        }),
+        Alcohol((i) -> {
+            if (!i.isEmpty()) {
+                return new Alcohol((float) i.get(0));
+            }
+            return new Alcohol();
+        }),
+        Coffee((i) ->
+        {
+            if (!i.isEmpty()) {
+                return new Coffee((String) i.get(0), getSubList(i,1, i.size()));
+            }
+            return new Coffee();
+        });
         ItemEnum(Function<List<Object>, Item> supplier) {
             item = supplier;
         }
+
         private Function<List<Object>, Item> item;
         public Function<List<Object>, Item> getItem() {
             return item;

@@ -51,8 +51,8 @@ public class ItemController {
         item.setName(itemDto.getName());
         item.setPrice(itemDto.getPrice());
         item.setVolume(itemDto.getVolume());
-        item.setTemperature(item.getTemperature());
-        item.setCalorie(item.getCalorie());
+        item.setTemperature(itemDto.getTemperature());
+        item.setCalorie(itemDto.getCalorie());
 
         itemRepository.save(item);
     }

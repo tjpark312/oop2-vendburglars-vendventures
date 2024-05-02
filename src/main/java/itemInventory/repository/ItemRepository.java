@@ -1,15 +1,16 @@
 package itemInventory.repository;
 
 import itemInventory.model.Item;
+import itemInventory.model.ItemAscendingComp;
 import itemInventory.util.ItemFactory;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class ItemRepository {
 
     private List<Item> inventory;
+
+    private static final ItemAscendingComp itemAscendingComp = new ItemAscendingComp();
 
     public List<Item> findAll() {
         return inventory;
@@ -45,7 +46,10 @@ public class ItemRepository {
         if(inventory.contains(item)) {
             throw new Exception("Item is already exist!");
         }
+
         inventory.add(item);
+
+        inventory.sort(itemAscendingComp);
     }
 
 

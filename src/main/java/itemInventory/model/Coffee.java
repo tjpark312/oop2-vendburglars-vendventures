@@ -16,6 +16,10 @@ public class Coffee extends Item{
         this.additions = additions;
     }
 
+    public Coffee() {
+
+    }
+
     public String getBean() {
         return bean;
     }

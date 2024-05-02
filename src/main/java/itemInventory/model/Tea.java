@@ -14,6 +14,10 @@ public class Tea extends Item {
         this.kind = kind;
     }
 
+    public Tea() {
+
+    }
+
     public String getKind() {
         return kind;
     }
