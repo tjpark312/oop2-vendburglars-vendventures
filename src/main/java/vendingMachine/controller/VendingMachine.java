@@ -2,12 +2,22 @@ package vendingMachine.controller;
 
 import Manager.ManagerController;
 import Manager.ManagerRepository;
-import Manager.entity.controller.*;
+
 
 import java.util.Scanner;
 
 public class VendingMachine
 {
+    private int price;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     ManagerController managerController = new ManagerController();
 
     Scanner scanner = new Scanner(System.in);
@@ -34,6 +44,4 @@ public class VendingMachine
 
     }
 
-    public void startCustomer() {
-    }
 }
