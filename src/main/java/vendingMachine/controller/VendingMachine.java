@@ -40,7 +40,7 @@ public class VendingMachine
     }
 
     public boolean startManager(String name, String password) {
-        managerController.registerManager();
+
         return managerController.logIn(name, password);
     }
     public void checkMoney() {
