@@ -8,7 +8,7 @@ import java.util.*;
 
 public class ItemRepository {
 
-    private List<Item> inventory;
+    private static List<Item> inventory = new ArrayList<>();
 
     private static final ItemAscendingComp itemAscendingComp = new ItemAscendingComp();
 
