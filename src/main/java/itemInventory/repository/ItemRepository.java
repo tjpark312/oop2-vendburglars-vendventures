@@ -3,6 +3,7 @@ package itemInventory.repository;
 import itemInventory.model.Item;
 import itemInventory.util.ItemFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,9 @@ public class ItemRepository {
     }
 
     public void save(Item item) throws Exception {
+        if(inventory == null) {
+            inventory = new ArrayList<>();
+        }
         if(inventory.contains(item)) {
             throw new Exception("Item is already exist!");
         }

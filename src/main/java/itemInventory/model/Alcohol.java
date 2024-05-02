@@ -12,11 +12,21 @@ public class Alcohol extends Item{
         this.abv = abv;
     }
 
+
+
     public float getAbv() {
         return abv;
     }
 
     public void setAbv(float abv) {
         this.abv = abv;
+    }
+
+    @Override
+    public String toString() {
+        return "Alcohol{" +
+                super.toString() +
+                "abv=" + abv +
+                '}';
     }
 }

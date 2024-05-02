@@ -18,7 +18,7 @@ public class ItemController {
         this.itemRepository = itemRepository;
     }
 
-    public List<Item> findAll() {
+    public List<Item> listItems() {
         return itemRepository.findAll();
 
     }
@@ -42,7 +42,7 @@ public class ItemController {
         itemRepository.deleteByNameAndVolume(name, volume);
     }
 
-    public void saveItem(ItemDto itemDto) throws Exception {
+    public void insertItem(ItemDto itemDto) throws Exception {
 
 
         Item item = ItemFactory.createItem(ItemFactory.ItemEnum.valueOf(itemDto.getKind()), itemDto.getDetails());

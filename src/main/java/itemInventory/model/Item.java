@@ -97,14 +97,12 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "price=" + price +
+        return "price=" + price +
                 ", name='" + name + '\'' +
                 ", volume=" + volume +
                 ", calorie=" + calorie +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", caffeine=" + caffeine +
-                ", temperature='" + temperature + '\'' +
-                '}';
+                ", temperature='" + temperature + '\'';
     }
 }

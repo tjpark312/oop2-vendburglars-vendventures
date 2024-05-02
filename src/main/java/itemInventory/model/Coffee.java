@@ -35,4 +35,12 @@ public class Coffee extends Item{
     public void addAddition(String addition) {
         additions.add(addition);
     }
+
+    @Override
+    public String toString() {
+        return "Coffee{" + super.toString() +
+                "bean='" + bean + '\'' +
+                ", additions=" + additions +
+                '}';
+    }
 }
