@@ -5,14 +5,15 @@ public class Manager {
     private String password;
     private String name;
 
-    // constructor
+    // 싱글톤 패턴??
+    // 생성자 생성하기
     public Manager(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
     }
 
-    // getter/setter
+    // getter/setter 생성하기
     public void setEmail(String email) {
         this.email = email;
     }
