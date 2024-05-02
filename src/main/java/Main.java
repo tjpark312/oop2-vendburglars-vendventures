@@ -15,8 +15,8 @@ public class Main {
     static ItemController itemController = new ItemController(itemRepository);
     static List<Item> list = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
-    static VendingMachine vendingMachine = new VendingMachine();
     private static boolean loginCheck = false;
+    public VendingMachine vendingMachine = new VendingMachine(itemController);
 
     public static void main(String[] args) {
         List<Object> details = List.of("Ethiopian Yirgacheffe", "water", "espresso");
