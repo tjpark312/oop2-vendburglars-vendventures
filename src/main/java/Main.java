@@ -21,11 +21,37 @@ public class Main {
     public static VendingMachine vendingMachine = new VendingMachine(itemController, managerController);
 
     public static void main(String[] args) {
+
         List<Object> details = List.of("Ethiopian Yirgacheffe", "water", "espresso");
         ItemDto itemDto = new ItemDto(100, "americano", 500, 32, "starbucks" ,
                 324, "cold", "Coffee",20, details);
+
+        ItemDto itemDto = new ItemDto(3500, "americano", 500, 32, "Starbucks" ,
+                150, "cold", "Coffee", 10,List.of("Ethiopian Yirgacheffe", "water", "espresso"));
+
+        ItemDto itemDto2 = new ItemDto(5500, "Sea Salt Caramel Cold Brew", 355, 32, "Starbucks" ,
+                130, "cold", "Coffee", 12,List.of(""));
+
+        ItemDto itemDto3 = new ItemDto(1500, "Coca Cola", 500, 250, "The Coca-Cola Company" ,
+                324, "cold", "SoftDrink", 13, List.of(""));
+
+        ItemDto itemDto4 = new ItemDto(1500, "Monster Energy", 473 , 160 , "Monster Beverage Corporation" ,
+                160 , "cold", "SportDrink", ,15 List.of(""));
+
+        ItemDto itemDto5 = new ItemDto(1800, "Monster Energy", 650  , 160 , "Monster Beverage Corporation" ,
+                60, "cold", "SportDrink", List.of("Tea"));
+        ItemDto itemDto6 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery", 0,  "cold", "Alcohol", 16,List.of(5.0));
+
+        ItemDto itemDto7 = new ItemDto(1300, "Lipton Iced Tea",500, 270,"Lipton", 0,  "cold", "Tea", 17, List.of("Peach"));
+
         try {
             itemController.insertItem(itemDto);
+            itemController.insertItem(itemDto2);
+            itemController.insertItem(itemDto3);
+            itemController.insertItem(itemDto4);
+            itemController.insertItem(itemDto5);
+            itemController.insertItem(itemDto6);
+            itemController.insertItem(itemDto7);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
