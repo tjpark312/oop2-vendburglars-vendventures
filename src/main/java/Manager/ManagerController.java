@@ -1,7 +1,7 @@
-package controller;
+package Manager;
 
-import entity.Manager;
-import repository.ManagerRepository;
+import Manager.Manager;
+import Manager.ManagerRepository;
 
 public class ManagerController {
     private ManagerRepository managerRepository = new ManagerRepository();
