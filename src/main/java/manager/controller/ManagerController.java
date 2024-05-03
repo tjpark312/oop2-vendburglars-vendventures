@@ -4,7 +4,11 @@ import manager.model.Manager;
 import manager.repository.ManagerRepository;
 
 public class ManagerController {
-    private ManagerRepository managerRepository = new ManagerRepository();
+    private final ManagerRepository managerRepository;
+
+    public ManagerController(ManagerRepository managerRepository) {
+        this.managerRepository = managerRepository;
+    }
 
     public boolean logIn(String email, String password) {
         return managerRepository.logIn(email, password);

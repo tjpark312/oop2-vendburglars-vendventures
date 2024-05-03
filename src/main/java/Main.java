@@ -4,6 +4,7 @@ import itemInventory.dto.ItemDto;
 import itemInventory.model.Item;
 import itemInventory.repository.ItemRepository;
 import manager.controller.ManagerController;
+import manager.repository.ManagerRepository;
 import vendingMachine.controller.VendingMachine;
 
 import java.util.ArrayList;
@@ -14,7 +15,8 @@ public class Main {
     static int sum = 0;
     static ItemRepository itemRepository = new ItemRepository();
     static ItemController itemController = new ItemController(itemRepository);
-    static ManagerController managerController = new ManagerController();
+    static ManagerRepository managerRepository = new ManagerRepository();
+    static ManagerController managerController = new ManagerController(managerRepository);
     static List<Item> list = new ArrayList<>();
     static Scanner scanner = new Scanner(System.in);
     private static boolean loginCheck = false;
@@ -36,9 +38,12 @@ public class Main {
 
         ItemDto itemDto5 = new ItemDto(1800, "Monster Energy", 650  , 160 , "Monster Beverage Corporation" ,
                 60, "cold", "SportDrink",13, List.of("Tea"));
-        ItemDto itemDto6 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery", 0,  "cold", "Alcohol", 16,List.of(5.0));
 
-        ItemDto itemDto7 = new ItemDto(1300, "Lipton Iced Tea",500, 270,"Lipton", 0,  "cold", "Tea", 17, List.of("Peach"));
+        ItemDto itemDto6 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery",
+                0,  "cold", "Alcohol", 16,List.of(5.0));
+
+        ItemDto itemDto7 = new ItemDto(1300, "Lipton Iced Tea",500, 270,"Lipton",
+                0,  "cold", "Tea", 17, List.of("Peach"));
 
         try {
             itemController.insertItem(itemDto);
@@ -52,9 +57,10 @@ public class Main {
             System.out.println(ex.getMessage());
         }
 
-        // 관리자 등록
+        // 먼저 관리자 등록하고 시작
         managerController.registerManager();
 
+        // 자판기 실행
         while (true) {
             vendingMachine.choiceUser();
             int choice = scanner.nextInt();
@@ -70,29 +76,40 @@ public class Main {
         }
     }
 
-
+    // 관리자 메뉴 실행
     public static void managerStart() {
         while (!loginCheck) {
-            System.out.println("관리자 로그인");
-            System.out.print("이메일 : ");
+            System.out.println("============= 관리자 로그인 ==============");
+            System.out.println("관리자의 이메일을 입력하세요. ");
             String email = scanner.next();
-            System.out.print("비밀번호 : ");
+            System.out.println("관리자의 비밀번호를 입력하세요. ");
             String password = scanner.next();
 
             loginCheck = vendingMachine.startManager(email, password);
+
+            if(loginCheck) {
+                System.out.println("로그인 되었습니다.\n");
+            }
+            else {
+                System.out.println("이메일 또는 비밀번호가 잘못 입력되었습니다.\n");
+            }
         }
+
         String managerMenu = """
+        ============= 관리자 메뉴 ==============
         1. 매출 확인하기 
         2. 재고 확인하기 
         3. 비밀번호 변경하기
         """;
-        System.out.print(managerMenu + "입력 : ");
+        System.out.println(managerMenu + "\n메뉴를 입력해주세요 : ");
         int num = scanner.nextInt();
         switch(num) {
             case 1 :
+                System.out.println("============= 매출 ==============");
                 vendingMachine.checkMoney();
                 break;
             case 2 :
+                System.out.println("============= 음료수 메뉴 ==============");
                 list = itemController.listItems();
                 for(Item item : list) {
                     System.out.println("제품 이름 : " + item.getName() + " 제품 개수 : " + item.getQuantity());
@@ -119,20 +136,21 @@ public class Main {
     }
 
     public static void customerStart(){//메뉴 출력
-      list = itemController.listItems();
-      Item item;
+        System.out.println("============= 음료수 ==============");
+        list = itemController.listItems();
+        Item item;
         for (int i = 0; i < list.size(); i++) {
             item = list.get(i);
             System.out.println((i + 1)+ ". " + item.getName() + " " + item.getPrice() + "원");
         }
         
-        System.out.println("주문할 메뉴를 입력해주세요.");
+        System.out.println("\n주문할 메뉴를 입력해주세요. : ");
         int number = scanner.nextInt() - 1;
         item = list.get(number);
-        System.out.println("제품명 : " + item.getName() + " 가격 : " + item.getPrice());
+        System.out.println("제품명 : " + item.getName() + ", 가격 : " + item.getPrice() + "원");
         sum += item.getPrice();
         vendingMachine.setPrice(sum);
-        System.out.println(vendingMachine.getPrice());
+        System.out.println(vendingMachine.getPrice() + "입니다.");
         itemController.updateQuantity(item.getName(),item.getVolume(), item.getQuantity()-1);
     }
 
