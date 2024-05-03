@@ -19,13 +19,13 @@ public class ItemDto {
     private String temperature;
 
     private String kind;
-
+    private int quantity;
     private List<Object> details;
 
     public ItemDto() {
     }
 
-    public ItemDto(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, String kind, List<Object> details) {
+    public ItemDto(int price, String name, int volume, int calorie, String manufacturer, int caffeine, String temperature, String kind,int quantity, List<Object> details) {
         this.price = price;
         this.name = name;
         this.volume = volume;
@@ -34,7 +34,16 @@ public class ItemDto {
         this.caffeine = caffeine;
         this.temperature = temperature;
         this.kind = kind;
+        this.quantity = quantity;
         this.details = details;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public int getPrice() {

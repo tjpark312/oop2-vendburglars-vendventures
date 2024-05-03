@@ -1,5 +1,6 @@
 package vendingMachine.controller;
 
+import com.sun.tools.javac.Main;
 import itemInventory.controller.ItemController;
 import manager.controller.ManagerController;
 
@@ -39,11 +40,13 @@ public class VendingMachine
     }
 
     public boolean startManager(String name, String password) {
-        managerController.registerManager();
+
         return managerController.logIn(name, password);
     }
     public void checkMoney() {
         System.out.println("매출내역입니다 : " + getPrice() + "원");
+
+
     }
 //    public void addItem() throws Exception {
 //        List<Object> details = List.of("Ethiopian Yirgacheffe", "water", "espresso");
