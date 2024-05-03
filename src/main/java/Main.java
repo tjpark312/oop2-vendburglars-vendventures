@@ -25,19 +25,19 @@ public class Main {
     public static void main(String[] args) {
 
         ItemDto itemDto = new ItemDto(3500, "americano", 500, 32, "Starbucks" ,
-                150, "cold", "Coffee", 10,List.of("Ethiopian Yirgacheffe", "water", "espresso"));
+                150, "cold", "Coffee", 50,List.of("Ethiopian Yirgacheffe", "water", "espresso"));
 
         ItemDto itemDto2 = new ItemDto(5500, "Sea Salt Caramel Cold Brew", 355, 32, "Starbucks" ,
-                130, "cold", "Coffee", 12,List.of(""));
+                130, "cold", "Coffee", 50,List.of(""));
 
         ItemDto itemDto3 = new ItemDto(1500, "Coca Cola", 500, 250, "The Coca-Cola Company" ,
-                324, "cold", "SoftDrink", 13, List.of(""));
+                324, "cold", "SoftDrink", 50, List.of(""));
 
         ItemDto itemDto4 = new ItemDto(1500, "Monster Energy", 473 , 160 , "Monster Beverage Corporation" ,
-                160 , "cold", "SportDrink", 15, List.of(""));
+                160 , "cold", "SportDrink", 50, List.of(""));
 
         ItemDto itemDto5 = new ItemDto(1800, "Monster Energy", 650  , 160 , "Monster Beverage Corporation" ,
-                60, "cold", "SportDrink",13, List.of("Tea"));
+                60, "cold", "SportDrink",50, List.of("Tea"));
 
 //        ItemDto itemDto6 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery",
 //                0,  "cold", "Alcohol", 16,List.of(5.0));
@@ -114,6 +114,7 @@ public class Main {
                 for(Item item : list) {
                     System.out.println("제품 이름 : " + item.getName() + " 제품 개수 : " + item.getQuantity());
                 }
+                System.out.println();
                 break;
             case 3:
                 System.out.println("============= 비밀번호 변경 ==============");
@@ -143,14 +144,15 @@ public class Main {
             item = list.get(i);
             System.out.println((i + 1)+ ". " + item.getName() + " " + item.getPrice() + "원");
         }
-        
-        System.out.println("\n주문할 메뉴를 입력해주세요. : ");
+
+        System.out.println();
+        System.out.println("주문할 메뉴를 입력해주세요. : ");
         int number = scanner.nextInt() - 1;
         item = list.get(number);
         System.out.println("제품명 : " + item.getName() + ", 가격 : " + item.getPrice() + "원");
         sum += item.getPrice();
         vendingMachine.setPrice(sum);
-        System.out.println(vendingMachine.getPrice() + "원 입니다.");
+        System.out.println(vendingMachine.getPrice() + "원 입니다.\n");
         itemController.updateQuantity(item.getName(),item.getVolume(), item.getQuantity()-1);
     }
 
