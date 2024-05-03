@@ -20,5 +20,17 @@ public class Test {
         ItemDto itemDtoH4 = new ItemDto(2000, "파워에이드", 600, 83, "The Coca-Cola Company" ,
                 0, "cold", "SportDrink", List.of("vegetable"));
 
+
+
+        ItemDto itemDto01 = new ItemDto(40000, "JACK DANIEL", 700, 1553, "Jack Daniel Distillery", 0, "cold", "Alcohol", List.of(40.0));
+
+
+        ItemDto itemDto2 = new ItemDto(1400, "진로 이즈백", 360, 400, "하이트 진로", 0, "cold", "Alcohol", List.of(16.5));
+
+
+        ItemDto itemDto3 = new ItemDto(1600, "필라이트", 500, 400, "하이트 진로", 0, "cold", "Alcohol", List.of(16.5));
+
+        ItemDto itemDto4 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery", 0,  "cold", "Alcohol", List.of(5.0));
+
     }
 }
