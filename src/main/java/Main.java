@@ -39,11 +39,11 @@ public class Main {
         ItemDto itemDto5 = new ItemDto(1800, "Monster Energy", 650  , 160 , "Monster Beverage Corporation" ,
                 60, "cold", "SportDrink",13, List.of("Tea"));
 
-        ItemDto itemDto6 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery",
-                0,  "cold", "Alcohol", 16,List.of(5.0));
+//        ItemDto itemDto6 = new ItemDto(2500, "Kirin Ichiban",500, 154,"Kirin Brewery",
+//                0,  "cold", "Alcohol", 16,List.of(5.0));
 
-        ItemDto itemDto7 = new ItemDto(1300, "Lipton Iced Tea",500, 270,"Lipton",
-                0,  "cold", "Tea", 17, List.of("Peach"));
+//        ItemDto itemDto7 = new ItemDto(1300, "Lipton Iced Tea",500, 270,"Lipton",
+//                0,  "cold", "Tea", 17, List.of("Peach"));
 
         try {
             itemController.insertItem(itemDto);
@@ -51,8 +51,8 @@ public class Main {
             itemController.insertItem(itemDto3);
             itemController.insertItem(itemDto4);
             itemController.insertItem(itemDto5);
-            itemController.insertItem(itemDto6);
-            itemController.insertItem(itemDto7);
+//            itemController.insertItem(itemDto6);
+//            itemController.insertItem(itemDto7);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -150,7 +150,7 @@ public class Main {
         System.out.println("제품명 : " + item.getName() + ", 가격 : " + item.getPrice() + "원");
         sum += item.getPrice();
         vendingMachine.setPrice(sum);
-        System.out.println(vendingMachine.getPrice() + "입니다.");
+        System.out.println(vendingMachine.getPrice() + "원 입니다.");
         itemController.updateQuantity(item.getName(),item.getVolume(), item.getQuantity()-1);
     }
 
