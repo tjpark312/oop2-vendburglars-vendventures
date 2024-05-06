@@ -31,7 +31,7 @@ public class VendingMachine
     public void choiceUser()
     {
         String menu = """
-                안녕하세요. 자판기입니다.
+                ============= 자판기 ==============
                 1. 관리자
                 2. 소비자
                      
@@ -44,8 +44,7 @@ public class VendingMachine
         return managerController.logIn(name, password);
     }
     public void checkMoney() {
-        System.out.println("매출내역입니다 : " + getPrice() + "원");
-
+        System.out.println("매출내역입니다 : " + getPrice() + "원\n");
 
     }
 //    public void addItem() throws Exception {

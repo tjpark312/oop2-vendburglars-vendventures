@@ -1,10 +1,12 @@
-# 🚽 vend-burglars_vend-ventures
+# 🧃 vend-burglars_vend-ventures
 
+
+- 자판기 도둑단의 자판기 재고 관리 시스템
 
 ## 🔥핵심 기능
 
 
-- ✨ 자판기 상품 조회, 추가, 삭제, 재고 관리
+- ✨ 자판기 상품 재고 관리 (조회, 추가, 삭제, 수정) 및 상품 구매
 
 
 ## 🏦 프로젝트 소개
@@ -24,7 +26,7 @@
 ## 📌 클래스 다이어그램
 
 
-![순서도](https://github.com/jectgenius/oop2-vendburglars-vendventures/blob/master/class-diagram.png)
+![클래스 다이어그램](https://github.com/jectgenius/oop2-vendburglars-vendventures/blob/master/class-diagram.png)
 
 
 ## 🍕 기능
@@ -34,11 +36,11 @@
 ### 🔆 도메인
 
 ---
-#### Manager (관리자)
+#### 💼 Manager (관리자)
 - 로그인, 로그아웃, 비밀번호 변경, 관리자 등록
-#### Item (상품)
+#### 💎 Item (상품)
 - 모든 상품 조회, 이름으로 상품 조회, 종류별 상품 조회, 특정 상품 조회, 상품 삭제, 상품 추가, 상품 수량 업데이트, 상품 수량 조회
-#### VendingMachine (자판기)
+#### 🧃 VendingMachine (자판기)
 - 사용자 선택, 관리자 메뉴 시작, 매출확인, 상품 삭제
 
 
@@ -59,7 +61,7 @@
 - 사전에 입력한 이메일, 비밀번호, 이름을 사용하여 관리자를 등록합니다.
 
 ---
-####  자판기
+#### 🧃 자판기
 1️⃣ 사용자 선택 (choiceUser)
 - 자판기 사용자로서 관리자 또는 소비자를 선택할 수 있는 메뉴를 출력합니다.
 
